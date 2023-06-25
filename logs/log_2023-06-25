@@ -5,4 +5,4 @@
 2023-06-25 12:15:53 INFO 192.168.46.77 port 22 is open.
 2023-06-25 12:15:55 INFO 16 IPs scaned.
 2023-06-25 12:15:55 INFO List of hosts inclusive DNS-Name saved in switch-list.json
-2023-06-25 12:15:55 INFO 3 IP(s) with open port 22 found: {'192.168.46.69': 'b-sw-zgr2-01.dwelle.de', '192.168.46.70': 'b-sw-zgr2-02.dwelle.de', '192.168.46.77': 'bcisis06.dwelle.de'}
+2023-06-25 12:15:55 INFO 3 IP(s) with open port 22 found: {'192.168.46.69': 'sw1.dm.com', '192.168.46.70': 'sw2.dm.com', '192.168.46.77': 'sw3.dm.com'}
