@@ -109,9 +109,9 @@ def main(argv):
             port = arg
     
     if any((not network, not file, not port)):
-        print('Mandatory parameter is missing.')
         help()
-        logging.err('Mandatory parameters are missing.')
+        print('\nERROR: Mandatory parameter is missing.\n')
+        logging.error('Mandatory parameters are missing.')
         sys.exit()
 
     # find out ip ranges
