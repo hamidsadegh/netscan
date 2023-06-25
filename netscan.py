@@ -33,7 +33,7 @@ def help():
     Syntax:  /usr/bin/python netscan.py [-n Network -p Port -f FilePath ] ...
     
     example: /usr/bin/python netscan.py -n 192.168.1.0/24 -p 22 -f /etc/output.json
-             /usr/bin/python netscan.py -n 192.168.1.16/30,192.168.2.2/32 p 22 -f /etc/output.json
+             /usr/bin/python netscan.py -n 192.168.1.16/30,192.168.2.2/32 -p 22 -f /etc/output.json
     
     args:
     -h --help           Help.
