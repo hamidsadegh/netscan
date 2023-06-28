@@ -39,6 +39,7 @@ def help():
     -h --help           Help.
     -v --version        Shows version.        
     -n --network        Network(S) to scan.
+    -p --port           Port to check.
     -f --file-path      File path containing file name to save the output.
                         You can write the output in .csv, .txt or .json file formats.
 
@@ -89,7 +90,7 @@ def main(argv):
     file = None
     networks=[]
     network=''
-
+    port='22'
     logging.info(' START')
     opts, args = getopt.getopt(argv[1:],'n:f:p:hv',['help','version','network=','file-path=','port='])
 
@@ -108,12 +109,12 @@ def main(argv):
         elif opt in ('-p', '--port'):
             port = arg
     
-    if any((not network, not file, not port)):
+    if any((not network, not file)):
         help()
-        print('\nERROR: Mandatory parameter is missing.\n')
+        print('\n'+'\033[91m'+'ERROR: Mandatory parameter is missing.'+'\033[0m'+'\n')
         logging.error('Mandatory parameters are missing.')
         sys.exit()
-
+        
     # find out ip ranges
     for n in networks:
         ip_ranges = IPNetwork(str(n))
