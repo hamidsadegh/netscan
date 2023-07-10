@@ -11,7 +11,7 @@ import logging
 today= date.today()
 today_dot = today.strftime('%d.%m.%Y')
 
-logging.basicConfig(filename='logs/log_%s' %today,
+logging.basicConfig(filename='logs/log_%s.log' %today,
                     filemode='w+',
                     format='%(asctime)s %(levelname)s %(message)s',           
                     datefmt='%Y-%m-%d %H:%M:%S',
@@ -33,13 +33,13 @@ def help():
     Syntax:  /usr/bin/python netscan.py [-n Network -p Port -f FilePath ] ...
     
     example: /usr/bin/python netscan.py -n 192.168.1.0/24 -p 22 -f /etc/output.json
-             /usr/bin/python netscan.py -n 192.168.1.16/30,192.168.2.2/32 -p 22 -f /etc/output.json
+             /usr/bin/python netscan.py -n 192.168.1.16/30,192.168.2.2/32 -p icmp -f /etc/output.json
     
     args:
     -h --help           Help.
     -v --version        Shows version.        
     -n --network        Network(S) to scan.
-    -p --port           Port to check.
+    -p --port           Port to check. (or icmp for Ping)
     -f --file-path      File path containing file name to save the output.
                         You can write the output in .csv, .txt or .json file formats.
 
@@ -126,7 +126,11 @@ def main(argv):
     
 
     #input('Press Enter to Continue...')
-    alive_devices = portscan(ip_range, port)
+    if port=='icmp':
+        alive_devices = pingscan(ip_range)
+    else:
+        alive_devices = portscan(ip_range, port)
+
     print(len(ip_range),'IPs scaned.')
     logging.info('%s IPs scaned.'%len(ip_range))
 
