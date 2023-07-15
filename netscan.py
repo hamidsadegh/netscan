@@ -1,7 +1,7 @@
 import sys
 import getopt
 import socket, struct
-from netaddr import *
+import ipaddress
 from datetime import date
 import json, csv
 import subprocess, platform
@@ -117,7 +117,7 @@ def main(argv):
         
     # find out ip ranges
     for n in networks:
-        ip_ranges = IPNetwork(str(n))
+        ip_ranges = ipaddress.ip_network(str(n))
         for ip in ip_ranges:
             ip_range.append(str(ip))
 
